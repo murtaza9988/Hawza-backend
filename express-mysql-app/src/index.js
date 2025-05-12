@@ -3,7 +3,8 @@ import cors from 'cors';
 import multer from 'multer';
 import userRoutes from './routes/userRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
-import lessonRoutes from './routes/lessonRoutes.js'; 
+import lessonRoutes from './routes/lessonRoutes.js';
+import assignmentsRoutes from './routes/assignmentsRoutes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -26,7 +27,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 // Routes
 app.use('/api', userRoutes);
 app.use('/api', contactRoutes);
-app.use('/api', lessonRoutes); 
+app.use('/api', lessonRoutes);
+app.use('/api', assignmentsRoutes);
 
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
